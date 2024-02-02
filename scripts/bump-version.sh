@@ -306,7 +306,7 @@ removeUnessentialPendingChanges() {
 
     echo "Removing unessential pending changes"
 
-    git restore
+    git restore demo-app/ios/AccessCheckoutReactNativeDemo.xcodeproj/project.pbxproj
 
     if [[ $? -ne 0 ]]; then
       echo "Failed to remove changes from staging area"
