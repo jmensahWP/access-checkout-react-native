@@ -109,6 +109,7 @@ checkNoPendingChangesToCommit() {
 
   echo ""
   echo "Checking that there are no pending changes to commit"
+  git status
   git diff --exit-code > /dev/null
   workingDirectoryCheckExitCode=$?
 
