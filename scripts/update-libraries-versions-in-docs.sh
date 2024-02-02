@@ -19,13 +19,13 @@ fi
 echo "Updating README files with React Native version ${reactNativeVersion} and React version ${reactVersion}"
 
 filepath=./README.md
-sed -i "s/React [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React ${reactVersion}/" $filepath
+sed -i '' "s/React [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React ${reactVersion}/" $filepath
 if [ $? -ne 0 ]; then
   echo "Failed to update React version in ${filepath}"
   exit 1
 fi
 
-sed -i "s/React Native [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React Native ${reactNativeVersion}/" $filepath
+sed -i '' "s/React Native [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React Native ${reactNativeVersion}/" $filepath
 if [ $? -ne 0 ]; then
   echo "Failed to update React Native version in ${filepath}"
   exit 1
@@ -35,13 +35,13 @@ echo "√ Successfully processed file ${filepath}"
 
 #
 filepath=./access-checkout-react-native-sdk/README.md
-sed -i "s/React [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React ${reactVersion}/" $filepath
+sed -i '' "s/React [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React ${reactVersion}/" $filepath
 if [ $? -ne 0 ]; then
   echo "Failed to update React version in ${filepath}"
   exit 1
 fi
 
-sed -i "s/React Native [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React Native ${reactNativeVersion}/" $filepath
+sed -i '' "s/React Native [0-9]\{1,2\}.[0-9]\{1,2\}.[0-9]\{1,2\}/React Native ${reactNativeVersion}/" $filepath
 if [ $? -ne 0 ]; then
   echo "Failed to update React Native version in ${filepath}"
   exit 1
