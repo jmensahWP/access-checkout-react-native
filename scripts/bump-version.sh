@@ -236,11 +236,9 @@ regenerateLibFiles() {
 
 function reinstallDemoAppPods() {
   echo ""
-  echo "Install npm packages to generate node_modules folder"
+  echo "Re-installing pods in demo-app following to version change in SDK iOS Bridge"
   cd demo-app
   npm install
-  echo ""
-  echo "Re-installing pods in demo-app following to version change in SDK iOS Bridge"
   cd ios
   pod install
 
@@ -303,6 +301,19 @@ changeVersionInReadme() {
   fi
 }
 
+removeUnessentialPendingChanges() {
+    echo ""
+
+    echo "Removing unessential pending changes"
+
+    git restore
+
+    if [[ $? -ne 0 ]]; then
+      echo "Failed to remove changes from staging area"
+      exit 1
+    fi
+}
+
 trimVersion
 trimTicketNumber
 validateArguments
@@ -319,5 +330,6 @@ reinstallDemoAppPods
 regenerateLibFiles
 
 commitAllChanges
+removeUnessentialPendingChanges
 checkNoPendingChangesToCommit "Some changes have been left out and not committed. This is unexpected and is an issue. Please check the script"
 pushChanges
